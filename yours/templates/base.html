@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>GetYoursRn</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{ % static  'css/style.css'   % }">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div>
+        <nav class="nav-wrapper" style="background-color:black">
+            <div class="container">
+                <a href="/" class="brand-logo" style="align-items: left;">GetYoursRn</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="https://www2.hm.com/sv_se/dam/nyheter/klader.html">Shoes and clothes</a></li>
+                    <li><a href="/">Food</a></li>
+                    <li><a href="/">Cosmetics</a></li>
+                    <li><a href="/">Electronics</a></li>
+                    <li><a href="/">Home Appliances</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container" style="background-color:rgb(255, 255, 255)">
+        <h1 style="text-align: center">Get What You Want in a Blink of an Eye</h1>
+        <div class="row">
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons" style="color:blue">add_shopping_cart</i>
+                    <p>Fast way to get what YOU want</p>
+                    <p class="light center" style="color:red">Search here with a beautiful UI</p>
+                </div>
+            </div>
+
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons" style="color:orange">camera</i>
+                    <p>Filter YOUR searches</p>
+                    <p class="light center" style="color:orangered">We built in functionality to filter based on what YOU have </p>
+                </div>
+
+            </div>
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons" style="color:rgb(59, 40, 5)">web</i>
+                    <p>A much better way to scrape the net</p>
+                    <p class="light center" style="color:rgb(16, 67, 53)">YOU are one click away of getting what you want</p>
+                </div>
+            </div>
+        </div>
+        <form action="{% url 'new_search'%}" method="post">
+            <! –– when ur are doing search u use post method not get method––>
+            {% csrf_token%}
+            <input type="text" name="search" placeholder="Search">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">add_shopping_cart</i>
+              </button>
+        </form>
+
+        <! –– everywhere we put that code it will bring all the code of this page for example in new_search.html ––>
+        {% block content %} {% endblock content %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
